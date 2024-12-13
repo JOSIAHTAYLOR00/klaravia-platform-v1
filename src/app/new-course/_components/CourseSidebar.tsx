@@ -31,7 +31,7 @@ export default function CourseSidebar() {
   };
 
   return (
-    <div className="h-full bg-white dark:bg-gray-900 py-6 md:py-24">
+    <div className="h-full bg-white dark:bg-[#181818] py-6 md:py-24">
       {/* Course Header */}
       <div className="px-6 mb-8">
         <div className="flex items-center gap-3 mb-4">

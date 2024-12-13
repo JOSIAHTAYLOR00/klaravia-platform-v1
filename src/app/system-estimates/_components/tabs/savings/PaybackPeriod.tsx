@@ -15,7 +15,7 @@ export function PaybackPeriod({ paybackPeriod }: PaybackPeriodProps) {
         <span className="text-xs text-main/50 dark:text-blue-50/50 ml-2">Estimated</span>
       </h3>
       <div className="space-y-2">
-        <div className="relative h-4 bg-green-500/30 rounded-3xl overflow-hidden">
+        <div className="relative h-4 bg-gray-500/40 dark:bg-gray-500/30 rounded-3xl overflow-hidden">
           <motion.div
             initial={{ width: 0 }}
             animate={{ width: `${(paybackPeriod / 25) * 100}%` }}

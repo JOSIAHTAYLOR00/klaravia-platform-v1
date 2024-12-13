@@ -101,7 +101,7 @@ export default function WithSubnavigation() {
             <DesktopNav />
           </Flex>
         </Flex>
-        <HStack spacing={2} px="20px" display={{ base: "none", md: "flex" }}>
+        <HStack spacing={2} px="20px">
           {colorMode === "light" ? <SunIcon color="orange.500" /> : <MoonIcon color="orange.500" />}
           <Switch colorScheme="orange" defaultChecked isChecked={colorMode === "dark"} onChange={toggleColorMode} size="md" />
         </HStack>

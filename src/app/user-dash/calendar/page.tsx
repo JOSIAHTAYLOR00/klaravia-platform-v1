@@ -16,6 +16,8 @@ interface CalendarProps {
 
 const Calendar: React.FC<CalendarProps> = ({ events }) => {
   const [currentDate, setCurrentDate] = useState(new Date());
+  const bgColor = useColorModeValue("rgba(0,0,0,.1)", "rgba(255,255,255,.1)");
+  const calendarColor = useColorModeValue("white", "#121212");
 
   // Get calendar details
   const getDaysInMonth = (date: Date) => {
@@ -108,8 +110,8 @@ const Calendar: React.FC<CalendarProps> = ({ events }) => {
 
   return (
     <Sidebar>
-      <Box w="full" minH="92vh" p={{ base: "10px", lg: "40px" }} className="bg-surface-layer-5 dark:bg-surface-dark-layer-5 rounded-lg">
-        <Box className="bg-white dark:bg-black/40 dark:border dark:border-black/10 rounded-lg p-6">
+      <Box w="full" minH="92vh" p={{ base: "10px", lg: "40px" }} bgColor={bgColor} className="rounded-lg">
+        <Box className="rounded-lg p-6" bgColor={calendarColor}>
           {/* Calendar Header */}
           <HStack justify="space-between" mb={6}>
             <Text className="text-2xl font-bold text-blue-50">

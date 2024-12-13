@@ -23,6 +23,9 @@ const SupportChat: React.FC = () => {
   const currentUser = "user";
   const { userData } = useAuth();
   const barColor = useColorModeValue("white", "#121212");
+  const bgColor = useColorModeValue("rgba(0,0,0,.1)", "rgba(255,255,255,.1)");
+  const chatColor = useColorModeValue("white", "#121212");
+  const chatMessageColor = useColorModeValue("black", "white");
 
   const { createMessage, loading: loadingMessage } = useCreateMessage();
   const { data: subscriptionData, error: subErr } = useOnCreateMessageSubscription(userData?.id || "");
@@ -117,9 +120,9 @@ const SupportChat: React.FC = () => {
 
   return (
     <Sidebar>
-      <Flex flexDirection="column" h="94vh" p="20px" className="bg-surface-layer-5 dark:bg-surface-dark-layer-5 rounded-lg">
+      <Flex flexDirection="column" h="94vh" p="20px" className="rounded-lg" bgColor={bgColor}>
         {/* Chat Container */}
-        <VStack flex={1} w="full" overflowY="auto" className="bg-white dark:bg-[#121212] border border-white/10 rounded-lg backdrop-blur-sm" spacing={4} p="20px">
+        <VStack flex={1} w="full" overflowY="auto" bgColor={chatColor} className="border border-white/10 rounded-lg backdrop-blur-sm" spacing={4} p="20px">
           {/* Header */}
           <HStack w="full" className="bg-gradient-to-r from-amber-500/10 to-amber-600/10 border border-amber-500/20 rounded-lg" p={4} mb={6}>
             <MessageSquare className="w-6 h-6 text-amber-500" />
@@ -198,9 +201,11 @@ const SupportChat: React.FC = () => {
         <HStack w="full" spacing={2} position="sticky" bottom="20px" mt="20px" className="rounded-lg py-4">
           <Input
             ref={inputRef}
-            h="50px"
+            h="54px"
             bgColor={barColor}
-            className="border-2 border-white/10 text-main dark:text-blue-50 dark:placeholder-blue-50/50"
+            color={chatMessageColor}
+            fontFamily="sans-serif"
+            className="border-2 border-white/10 dark:placeholder-blue-50/50"
             placeholder="Type your message..."
             value={input}
             onChange={handleInputChange}
@@ -211,12 +216,12 @@ const SupportChat: React.FC = () => {
             }}
           />
           <Button
+            _hover={{ bgColor: "orange.400" }}
+            bgColor="orange"
             h="50px"
             w="50px"
             className={`
-            rounded-lg transition-all duration-200
-            ${input.trim() ? "bg-gradient-to-r from-amber-500 to-amber-600 hover:from-amber-600 hover:to-amber-700" : "bg-white/10 cursor-not-allowed"}
-          `}
+            rounded-lg transition-all duration-200`}
             onClick={handleSendMessage}
             isDisabled={!input.trim() || loadingMessage}
           >

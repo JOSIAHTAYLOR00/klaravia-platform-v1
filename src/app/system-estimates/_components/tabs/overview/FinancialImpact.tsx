@@ -20,10 +20,10 @@ export function FinancialImpact({ paybackPeriod, estimatedSavings }: FinancialIm
         <div className="text-main/50 dark:text-blue-50/50 mb-2">with</div>
         <div>
           <p className="text-sm text-main dark:text-blue-50/50 mb-1">25-Year Savings</p>
-          <p className="text-3xl font-bold text-green-500/80">${estimatedSavings.toLocaleString()}</p>
+          <p className="text-3xl font-bold text-green-500 dark:text-green-500/80">${estimatedSavings.toLocaleString()}</p>
         </div>
       </div>
-      <div className="h-2 bg-green-500/60 rounded-3xl overflow-hidden mb-2">
+      <div className="h-2 bg-green-500/70 dark:bg-green-500/60 rounded-3xl overflow-hidden mb-2">
         <motion.div
           initial={{ width: 0 }}
           animate={{ width: `${(paybackPeriod / 25) * 100}%` }}

@@ -11,7 +11,7 @@ export const metadata = {
 export default function CourseLayout({ children }: { children: React.ReactNode }) {
   return (
     <CourseProvider>
-      <div className="min-h-screen bg-gray-50 dark:bg-gray-900">
+      <div className="min-h-screen bg-gray-50 dark:bg-[#121212]">
         <Navbar />
         <MobileNav />
         <div className="flex">

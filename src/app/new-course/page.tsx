@@ -3,7 +3,7 @@ import { GraduationCap, Clock, BookOpen, Award } from "lucide-react";
 
 export default function CourseHomePage() {
   return (
-    <div className="max-w-4xl mx-auto py-16 md:pt-16 px-6">
+    <div className="max-w-4xl mx-auto pt-28 md:pt-12 px-6">
       <header className="text-center mb-16">
         <div className="flex items-center justify-center gap-3 mb-6">
           <div className="p-2 bg-blue-50 dark:bg-blue-900/30 rounded-lg">

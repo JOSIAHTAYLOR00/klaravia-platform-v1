@@ -35,11 +35,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "Solar panels work through what's called the photovoltaic effect - a process where certain materials generate electricity when exposed to sunlight. This process occurs silently and automatically, with no moving parts, making solar panels one of the most reliable and low-maintenance ways to generate electricity."
           },
-          {
-            type: "image",
-            url: "/images/photovoltaic-effect.jpg",
-            description: "Diagram showing how the photovoltaic effect converts sunlight into electricity"
-          },
+          // {
+          //   type: "image",
+          //   url: "/images/photovoltaic-effect.jpg",
+          //   description: "Diagram showing how the photovoltaic effect converts sunlight into electricity"
+          // },
           {
             type: "subheading",
             body: "Key Benefits of Solar Power"
@@ -114,7 +114,7 @@ export const courseStructure: Module[] = [
           {
             type: "callout",
             title: "Panel Efficiency Matters",
-            body: "Higher efficiency panels can generate more power in a smaller space, which is particularly important if your roof has limited usable area. Through Klaravia's platform, you can explore different panel options and see how they affect your system's performance."
+            body: "Higher efficiency panels can generate more power in a smaller space, which is particularly important if your roof has limited usable area. Through Klaravia's platform, you can explore the different panel options provided by our install partners."
           },
           {
             type: "heading",
@@ -129,11 +129,11 @@ export const courseStructure: Module[] = [
             title: "Types of Inverters",
             body: "String Inverters (central conversion), Microinverters (panel-level conversion), Power Optimizers (panel-level optimization with central conversion)"
           },
-          {
-            type: "callout",
-            title: "The Right Choice for Your Home",
-            body: "Each inverter type has its advantages. Klaravia's design tools analyze your specific situation to recommend the most suitable inverter technology for your needs and budget."
-          },
+          // {
+          //   type: "callout",
+          //   title: "The Right Choice for Your Home",
+          //   body: "Each inverter type has its advantages. Klaravia's design tools analyze your specific situation to recommend the most suitable inverter technology for your needs and budget."
+          // },
           {
             type: "heading",
             body: "Racking and Mounting Systems"
@@ -142,11 +142,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "Racking systems secure your solar panels to your roof while maintaining proper ventilation and optimal angle for maximum production. The right racking system depends on your roof type, local weather conditions, and aesthetic preferences."
           },
-          {
-            type: "image",
-            url: "/images/racking-systems.jpg",
-            description: "Different types of solar panel mounting systems for various roof types"
-          },
+          // {
+          //   type: "image",
+          //   url: "/images/racking-systems.jpg",
+          //   description: "Different types of solar panel mounting systems for various roof types"
+          // },
           {
             type: "heading",
             body: "Monitoring Systems"
@@ -217,11 +217,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "Each solar panel contains numerous individual solar cells, typically made from silicon. These cells are like sandwiches made of two layers of silicon that have been specially treated or 'doped' to create an electric field between them."
           },
-          {
-            type: "image",
-            url: "/images/solar-cell-structure.jpg",
-            description: "Cross-section diagram of a solar cell showing its various layers"
-          },
+          // {
+          //   type: "image",
+          //   url: "/images/solar-cell-structure.jpg",
+          //   description: "Cross-section diagram of a solar cell showing its various layers"
+          // },
           {
             type: "heading",
             body: "The Photovoltaic Effect in Action"
@@ -264,7 +264,7 @@ export const courseStructure: Module[] = [
           {
             type: "callout",
             title: "Klaravia's Smart Design",
-            body: "Our platform analyzes all these factors using advanced satellite imagery and local weather data to design a system that maximizes production for your specific roof and location."
+            body: "Our platform analyzes all these factors using advanced satellite and drone imagery data to design a system that maximizes production for your specific roof and location."
           },
           {
             type: "heading",
@@ -274,11 +274,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "Solar panels typically produce the most electricity during midday when the sun is highest in the sky. Production varies throughout the day and across seasons, but modern systems are designed to meet your annual energy needs despite these natural variations."
           },
-          {
-            type: "image",
-            url: "/images/daily-production-curve.jpg",
-            description: "Graph showing typical daily solar production curve"
-          },
+          // {
+          //   type: "image",
+          //   url: "/images/daily-production-curve.jpg",
+          //   description: "Graph showing typical daily solar production curve"
+          // },
           {
             type: "heading",
             body: "Temperature and Performance"
@@ -287,11 +287,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "Contrary to what many think, solar panels actually perform better in cooler temperatures. While they need sunlight to generate power, excessive heat can slightly reduce their efficiency. This is why ventilation behind the panels is important for optimal performance."
           },
-          {
-            type: "callout",
-            title: "Real-Time Monitoring",
-            body: "Through Klaravia's user portal, you can monitor your system's production in real-time, understanding how different conditions affect your power generation and ensuring your system is performing as designed."
-          },
+          // {
+          //   type: "callout",
+          //   title: "Real-Time Monitoring",
+          //   body: "Through Klaravia's user portal, you can monitor your system's production in real-time, understanding how different conditions affect your power generation and ensuring your system is performing as designed."
+          // },
           {
             type: "heading",
             body: "Seasonal Variations"
@@ -353,11 +353,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "Hybrid systems combine grid connection with battery storage, offering the best of both worlds. These systems can provide backup power during outages while still taking advantage of net metering benefits."
           },
-          {
-            type: "image",
-            url: "/images/hybrid-system-diagram.jpg",
-            description: "Diagram showing components and flow of a hybrid solar system"
-          },
+          // {
+          //   type: "image",
+          //   url: "/images/hybrid-system-diagram.jpg",
+          //   description: "Diagram showing components and flow of a hybrid solar system"
+          // },
           {
             type: "list",
             title: "Hybrid System Advantages",
@@ -541,11 +541,11 @@ export const courseStructure: Module[] = [
             type: "quote",
             body: "The cheapest solar system isn't always the best value - quality components and professional installation often provide better returns over time."
           },
-          {
-            type: "image",
-            url: "/images/cost-breakdown-chart.jpg",
-            description: "Pie chart showing typical breakdown of solar system costs"
-          },
+          // {
+          //   type: "image",
+          //   url: "/images/cost-breakdown-chart.jpg",
+          //   description: "Pie chart showing typical breakdown of solar system costs"
+          // },
           {
             type: "callout",
             title: "Making an Informed Decision",
@@ -608,11 +608,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "In some states, you can earn SRECs for the solar power your system generates. These credits can be sold to utility companies, providing an ongoing source of income from your solar installation. The value of SRECs varies by market but can be substantial."
           },
-          {
-            type: "callout",
-            title: "SREC Tracking Made Easy",
-            body: "Klaravia's platform helps you track your SREC earnings potential and connects you with SREC marketplaces in eligible states."
-          },
+          // {
+          //   type: "callout",
+          //   title: "SREC Tracking Made Easy",
+          //   body: "Klaravia's platform helps you track your SREC earnings potential and connects you with SREC marketplaces in eligible states."
+          // },
           {
             type: "heading",
             body: "Utility Company Incentives"
@@ -634,11 +634,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "Net metering allows you to receive credit for excess solar power sent back to the grid. While not technically an incentive, it's a crucial policy that affects your solar savings. Net metering policies and rates vary by utility and state."
           },
-          {
-            type: "image",
-            url: "/images/net-metering-diagram.jpg",
-            description: "Diagram showing how net metering works with your solar system and the grid"
-          },
+          // {
+          //   type: "image",
+          //   url: "/images/net-metering-diagram.jpg",
+          //   description: "Diagram showing how net metering works with your solar system and the grid"
+          // },
           {
             type: "heading",
             body: "Local Government Incentives"
@@ -650,7 +650,7 @@ export const courseStructure: Module[] = [
           {
             type: "callout",
             title: "Location-Specific Savings",
-            body: "The Klaravia platform automatically identifies all available incentives in your area and calculates your total potential savings."
+            body: "The Klaravia platform will soon automatically identify all available incentives in your area and calculate your total potential savings."
           },
           {
             type: "heading",
@@ -714,11 +714,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "Solar power reduces your bill in multiple ways. It directly offsets your energy consumption, can reduce demand charges, and may provide additional credits through net metering. Understanding these effects helps you maximize your savings."
           },
-          {
-            type: "image",
-            url: "/images/bill-comparison.jpg",
-            description: "Before and after comparison of typical electricity bills with solar"
-          },
+          // {
+          //   type: "image",
+          //   url: "/images/bill-comparison.jpg",
+          //   description: "Before and after comparison of typical electricity bills with solar"
+          // },
           {
             type: "heading",
             body: "Calculating Solar Production"
@@ -787,11 +787,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "Modern solar systems include monitoring tools that track both production and savings in real-time. This helps you verify your system's performance and identify any issues quickly."
           },
-          {
-            type: "callout",
-            title: "Savings Tracking",
-            body: "Klaravia's user portal provides detailed tracking of your solar production, consumption, and savings, helping you verify your return on investment."
-          },
+          // {
+          //   type: "callout",
+          //   title: "Savings Tracking",
+          //   body: "Klaravia's user portal provides detailed tracking of your solar production, consumption, and savings, helping you verify your return on investment."
+          // },
           {
             type: "divider"
           },
@@ -849,7 +849,7 @@ export const courseStructure: Module[] = [
           {
             type: "callout",
             title: "Comparing Loan Options",
-            body: "Klaravia's platform helps you compare different loan options from trusted lenders, showing you real monthly payments and total costs for each option."
+            body: "Klaravia's platform helps you compare different loan options from trusted lenders, showing you estimated monthly payments and total costs for each option."
           },
           {
             type: "heading",
@@ -886,11 +886,11 @@ export const courseStructure: Module[] = [
             title: "Key Comparison Factors",
             body: "Upfront costs, Monthly payments, Long-term savings, Tax incentive eligibility, Maintenance responsibility, Contract length, Transfer options"
           },
-          {
-            type: "image",
-            url: "/images/financing-comparison.jpg",
-            description: "Chart comparing different solar financing options"
-          },
+          // {
+          //   type: "image",
+          //   url: "/images/financing-comparison.jpg",
+          //   description: "Chart comparing different solar financing options"
+          // },
           {
             type: "heading",
             body: "Making Your Decision"
@@ -968,7 +968,7 @@ export const courseStructure: Module[] = [
           {
             type: "callout",
             title: "Klaravia's Advanced Assessment Tools",
-            body: "Our platform uses high-resolution satellite imagery and AI-powered analysis to create accurate 3D models of your property, identifying optimal panel placement without an initial site visit."
+            body: "Our platform uses high-resolution drone imagery and AI-powered analysis to create accurate 3D models of your property, identifying optimal panel placement without an initial site visit."
           },
           {
             type: "heading",
@@ -991,11 +991,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "A detailed shade analysis identifies potential obstacles to solar production throughout the day and across seasons. This includes trees, buildings, chimneys, and other structures that might cast shadows."
           },
-          {
-            type: "image",
-            url: "/images/shade-analysis.jpg",
-            description: "3D model showing sun path and shade analysis for a typical residential roof"
-          },
+          // {
+          //   type: "image",
+          //   url: "/images/shade-analysis.jpg",
+          //   description: "3D model showing sun path and shade analysis for a typical residential roof"
+          // },
           {
             type: "heading",
             body: "Electrical System Assessment"
@@ -1017,11 +1017,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "Using assessment data, solar designers create a custom system that maximizes production while meeting aesthetic and budget requirements. This includes selecting equipment and determining optimal panel layout."
           },
-          {
-            type: "callout",
-            title: "Custom Design Solutions",
-            body: "Klaravia's platform generates multiple design options, allowing you to compare different layouts and equipment choices to find your ideal solution."
-          },
+          // {
+          //   type: "callout",
+          //   title: "Custom Design Solutions",
+          //   body: "Klaravia's platform generates multiple design options, allowing you to compare different layouts and equipment choices to find your ideal solution."
+          // },
           {
             type: "heading",
             body: "Production Modeling"
@@ -1030,11 +1030,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "Advanced software simulates your system's expected production using local weather data, shade analysis, and equipment specifications. This helps ensure your system will meet your energy goals."
           },
-          {
-            type: "image",
-            url: "/images/production-model.jpg",
-            description: "Graph showing predicted monthly solar production based on site analysis"
-          },
+          // {
+          //   type: "image",
+          //   url: "/images/production-model.jpg",
+          //   description: "Graph showing predicted monthly solar production based on site analysis"
+          // },
           {
             type: "heading",
             body: "Design Considerations"
@@ -1105,11 +1105,11 @@ export const courseStructure: Module[] = [
             title: "Key Usage Factors",
             body: "Annual electricity consumption, Monthly usage variations, Peak demand periods, Time-of-use considerations, Future usage changes"
           },
-          {
-            type: "callout",
-            title: "Smart Usage Analysis",
-            body: "Klaravia's platform analyzes your utility bill history to identify usage patterns and recommend optimal system sizes based on your specific consumption profile."
-          },
+          // {
+          //   type: "callout",
+          //   title: "Smart Usage Analysis",
+          //   body: "Klaravia's platform analyzes your utility bill history to identify usage patterns and recommend optimal system sizes based on your specific consumption profile."
+          // },
           {
             type: "heading",
             body: "Production Goals"
@@ -1118,11 +1118,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "Most homeowners aim to offset 100% of their electricity usage, but this isn't always the best or most feasible option. Factors like roof space, budget, and local regulations may influence your production goals."
           },
-          {
-            type: "image",
-            url: "/images/consumption-vs-production.jpg",
-            description: "Graph comparing typical home consumption with solar production patterns"
-          },
+          // {
+          //   type: "image",
+          //   url: "/images/consumption-vs-production.jpg",
+          //   description: "Graph comparing typical home consumption with solar production patterns"
+          // },
           {
             type: "heading",
             body: "Understanding Solar Capacity"
@@ -1170,11 +1170,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "Consider future changes in your electricity usage when sizing your system. This might include electric vehicles, home additions, or other major changes in consumption patterns."
           },
-          {
-            type: "callout",
-            title: "Growth Planning",
-            body: "Klaravia helps you plan for future needs by modeling different consumption scenarios and showing how they affect optimal system sizing."
-          },
+          // {
+          //   type: "callout",
+          //   title: "Growth Planning",
+          //   body: "Klaravia helps you plan for future needs by modeling different consumption scenarios and showing how they affect optimal system sizing."
+          // },
           {
             type: "heading",
             body: "Equipment Selection Impact"
@@ -1250,11 +1250,11 @@ export const courseStructure: Module[] = [
             title: "Common Permit Requirements",
             body: "Structural engineering reports, Electrical diagrams, Site plans, Equipment specifications, Fire safety compliance, Zoning verification"
           },
-          {
-            type: "callout",
-            title: "Streamlined Permitting",
-            body: "Klaravia's platform automatically generates complete permit packages based on your jurisdiction's specific requirements, and our installer network handles all permit submissions."
-          },
+          // {
+          //   type: "callout",
+          //   title: "Streamlined Permitting",
+          //   body: "Klaravia's platform automatically generates complete permit packages based on your jurisdiction's specific requirements, and our installer network handles all permit submissions."
+          // },
           {
             type: "heading",
             body: "Electrical Permits"
@@ -1276,11 +1276,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "If you live in a community with a Homeowners Association (HOA), you may need their approval before installation. Many states have 'solar rights laws' that limit HOA restrictions on solar installations."
           },
-          {
-            type: "callout",
-            title: "HOA Navigation",
-            body: "Our platform includes templates and guides for HOA submissions, helping you present your solar plans effectively and address common concerns."
-          },
+          // {
+          //   type: "callout",
+          //   title: "HOA Navigation",
+          //   body: "Our platform includes templates and guides for HOA submissions, helping you present your solar plans effectively and address common concerns."
+          // },
           {
             type: "heading",
             body: "Utility Interconnection"
@@ -1294,11 +1294,11 @@ export const courseStructure: Module[] = [
             title: "Interconnection Steps",
             body: "Initial application, Technical review, Equipment verification, System size approval, Metering requirements, Final authorization"
           },
-          {
-            type: "image",
-            url: "/images/interconnection-diagram.jpg",
-            description: "Diagram showing typical utility interconnection requirements"
-          },
+          // {
+          //   type: "image",
+          //   url: "/images/interconnection-diagram.jpg",
+          //   description: "Diagram showing typical utility interconnection requirements"
+          // },
           {
             type: "heading",
             body: "Fire Safety Requirements"
@@ -1320,11 +1320,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "Local zoning laws may affect where and how solar panels can be installed. Some jurisdictions have specific solar zoning ordinances."
           },
-          {
-            type: "callout",
-            title: "Zoning Compliance",
-            body: "Klaravia's design tools automatically consider local zoning requirements when creating your system layout."
-          },
+          // {
+          //   type: "callout",
+          //   title: "Zoning Compliance",
+          //   body: "Klaravia's design tools automatically consider local zoning requirements when creating your system layout."
+          // },
           {
             type: "heading",
             body: "Inspection Process"
@@ -1426,11 +1426,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "The main installation phase includes mounting the panels and completing the electrical connections. This is typically the most visible and active part of the installation."
           },
-          {
-            type: "image",
-            url: "/images/installation-process.jpg",
-            description: "Step-by-step visualization of a typical solar installation day"
-          },
+          // {
+          //   type: "image",
+          //   url: "/images/installation-process.jpg",
+          //   description: "Step-by-step visualization of a typical solar installation day"
+          // },
           {
             type: "list",
             title: "Main Installation Steps",
@@ -1610,11 +1610,11 @@ export const courseStructure: Module[] = [
             type: "text",
             body: "While traditional sales require multiple home visits and meetings, online platforms let you explore options on your own schedule, from anywhere."
           },
-          {
-            type: "image",
-            url: "/images/timeline-comparison.jpg",
-            description: "Timeline comparison of traditional vs. online solar purchasing process"
-          },
+          // {
+          //   type: "image",
+          //   url: "/images/timeline-comparison.jpg",
+          //   description: "Timeline comparison of traditional vs. online solar purchasing process"
+          // },
           {
             type: "heading",
             body: "System Design and Customization"
@@ -1689,11 +1689,11 @@ export const courseStructure: Module[] = [
             title: "Essential Credentials",
             body: "NABCEP certification, State electrical license, General contractor license, Manufacturer certifications, Insurance coverage"
           },
-          {
-            type: "callout",
-            title: "Klaravia's Vetting Process",
-            body: "Every installer in our network undergoes rigorous verification of credentials, insurance, and performance history before being approved to offer services on our platform."
-          },
+          // {
+          //   type: "callout",
+          //   title: "Klaravia's Vetting Process",
+          //   body: "Every installer in our network undergoes rigorous verification of credentials, insurance, and performance history before being approved to offer services on our platform."
+          // },
           {
             type: "heading",
             body: "Experience Matters"
@@ -1718,7 +1718,7 @@ export const courseStructure: Module[] = [
           {
             type: "callout",
             title: "Verified Reviews",
-            body: "Klaravia only displays verified customer reviews from actual installations, ensuring you get authentic feedback about each installer's performance."
+            body: "Klaravia will only display verified customer reviews from actual installations, ensuring you get authentic feedback about each installer's performance."
           },
           {
             type: "heading",

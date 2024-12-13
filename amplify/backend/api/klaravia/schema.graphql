@@ -1,0 +1,465 @@
+# This "input" configures a global authorization rule to enable public access to
+# all models in this schema. Learn more about authorization rules here: https://docs.amplify.aws/cli/graphql/authorization-rules
+input AMPLIFY {
+  globalAuthRule: AuthRule = { allow: public }
+} # FOR TESTING ONLY!
+type State @model {
+  id: ID!
+  name: String!
+  users: [User] @hasMany(indexName: "byState", fields: ["id"])
+  installerStates: [InstallerState] @hasMany(indexName: "byState", fields: ["id"]) # Connection to the join table
+}
+
+enum RoofCondition {
+  EXCELLENT
+  GOOD
+  POOR
+  UNKNOWN
+}
+
+enum RoofMaterial {
+  COMPOSITION_SHINGLES
+  S_TYPE_CONCRETE
+  FLAT_CONCRETE_TILE
+  METAL
+  FLAT
+  CLAY
+  ROCK
+  SLATE_OR_STONE
+  UNKNOWN
+}
+
+enum ElectricalStatus {
+  NOT_SPECIFIED
+  OLD
+  MODERATELY_OLD
+  MODERATELY_NEW
+  NEW
+}
+
+type EnergyTable {
+  facet: String
+  panelId: Int
+  panelsMonthlyProduction: [Int]
+  productionMultiplier: String
+  savEachPanel: String
+  systemProductionMultiplier: String
+  tsrfEachPanel: String
+  coordinates: [[Float]]
+  kWSize: String
+  kWSizeCumulative: String
+  kWhYr: String
+  kWhYrCumulative: String
+}
+
+type Facet {
+  averageSAV: String
+  averageTSRF: String
+  azimuth: String
+  facetId: String
+  noOfObstructions: String
+  pitchDegree: String
+  sqFt: String
+}
+
+type SolarReadyProposeDataRoofObject {
+  existingPanelsOnStructure: String
+  homeClassification: String
+  imageryDate: String
+  jobId: String
+  latLong: String
+  maxNumberOfPanels: String
+  maxKWSystem: String
+  maxKWhYrSystem: String
+  moduleLength: String
+  moduleWatts: String
+  moduleWidth: String
+  numberOfFacets: String
+  otherLosses: String
+  predominantPitchDegree: String
+  setbacks: String
+  totalAreaOfMaxSystem: String
+  totalSqFtOfRoof: String
+  treeOverhangPrecent: String
+}
+
+type SolarReadyProposeDataObject {
+  energyTable: [EnergyTable]
+  facet: [Facet]
+  roof: SolarReadyProposeDataRoofObject
+}
+
+type InitialDesign {
+  dataOutput: SolarReadyProposeDataObject
+  jobId: String
+  productId: Int
+  imageUrl: String
+}
+
+type FinalDesign {
+  designPdf: String
+}
+
+type User @model {
+  id: ID!
+  username: String
+  first_name: String
+  last_name: String
+  birth_date: AWSDate
+  cognito_id: String
+  email: AWSEmail
+  user_type: UserType
+  phone_number: AWSPhone
+  home_number_of_stories: String
+  roof_condition: RoofCondition
+  roof_material: RoofMaterial
+  address: String
+  stateId: ID @index(name: "byState")
+  state: State @belongsTo(fields: ["stateId"])
+  utility_provider: String
+  home_owner: Boolean
+  home_has_foundation: Boolean
+  electrical_system_status: ElectricalStatus
+  is_hoa_property: Boolean
+  has_home_owners_insurance: Boolean
+  installerId: ID @index(name: "byInstaller")
+  installer: Installer @belongsTo(fields: ["installerId"])
+  payment_method: PaymentMethod
+  electric_bill: String
+  estimatedAnnualUsage: String
+  initialDesign: InitialDesign
+  finalDesign: FinalDesign
+  user_images: [String]
+  projectStatus: ProjectStatus
+  userStatus: UserStatus
+  measurementsOrderReportId: String
+  salesforceId: String
+  installerSalesforceId: String
+  signed_installer_contract: Boolean
+  electric_bill_reviewed: Boolean
+  google_system_size: Float
+  requires_battery: Boolean
+  selected_battery: Battery
+  total_system_cost: Float
+  final_payment_amount: Float
+  site_survey_date: AWSDateTime
+  installation_date: AWSDateTime
+  final_payment_invoice: String
+  user_agreed_to_final_design: Boolean
+  updated_by: UserUpdateOptions
+}
+
+enum UserUpdateOptions {
+  SALESFORCE
+  DYNAMO
+}
+
+type Message @model {
+  id: ID!
+  userId: String!
+  klaravia_user_id: String
+  content: String!
+  sender: String!
+  receiver: String!
+  createdAt: AWSDateTime
+}
+
+enum UserType {
+  LEAD
+  USER
+  CLIENT
+}
+
+type InstallerReview {
+  id: ID!
+  pfp: String
+  name: String
+  rating: Float!
+  title: String
+  review: String
+}
+
+type Installer @model {
+  id: ID!
+  cognitoPassword: String
+  company_name: String
+  company_address: String
+  company_phone_number: String
+  company_email: String
+  company_tag_line: String
+  company_red_line: Float
+  company_about_text: String
+  company_cover_image_url: String
+  available_panels: [Panel]
+  available_inverters: [Inverter]
+  available_batteries: [Battery]
+  adders: [Adder]
+  installerStates: [InstallerState] @hasMany(indexName: "byInstaller", fields: ["id"])
+  users: [User] @hasMany(indexName: "byInstaller", fields: ["id"])
+  google_place_id: String
+  installer_reviews: [InstallerReview]
+  installer_rating: Float
+  salesforceId: String
+  years_in_business: Int
+  average_install_time: Int
+  user_agreement: String
+}
+
+type Adder {
+  type: String
+  cost: Float
+  requires_watt_multiplier: Boolean
+  watt_multiplier: Float
+}
+
+type Panel {
+  manufacturer: String
+  seriesName: String
+  additional_cost: Float
+  requires_watt_multiplier: Boolean
+  watt_multiplier: Float
+  pMax: String
+  width: String
+  height: String
+  dimensionsUnit: String
+  efficiency: String
+  panelSpecificationsUrl: String
+  warrantyYears: String
+  image_url: String
+  default_panel: Boolean
+}
+
+type Inverter {
+  manufacturer: String
+  seriesName: String
+  additional_cost: Float
+  requires_watt_multiplier: Boolean
+  watt_multiplier: Float
+  spec_sheet_url: String
+}
+
+type Battery {
+  manufacturer: String
+  seriesName: String
+  additional_cost: Float
+  spec_sheet_url: String
+  image_url: String
+  power_output: Float
+  storage_capacity: Float
+  default_battery: Boolean
+}
+
+type InstallerState @model {
+  id: ID!
+  installer: Installer! @belongsTo(fields: ["installerId"]) # Explicit connection to Installer
+  state: State! @belongsTo(fields: ["stateId"]) # Explicit connection to State
+  installerId: ID! @index(name: "byInstaller") # Index for connection
+  stateId: ID! @index(name: "byState") # Index for connection
+}
+
+enum PaymentMethod {
+  CASH
+  LOAN
+}
+
+enum UserStatus {
+  ACTIVE
+  ARCHIVED
+}
+
+enum ProjectStatus {
+  AWAITING_ELECTRIC_BILL_REVIEW
+  ELECTRIC_BILL_ISSUE_AWAITING_CUSTOMER_RE_UPLOAD
+  ELECTRIC_BILL_REVIEWED_AWAITING_TRUE_DESIGN_PAYMENT
+  TRUE_DESIGN_PAYMENT_ISSUE_AWAITING_RESOLUTION
+  TRUE_DESIGN_PAYMENT_SUCCEEDED_AWAITING_TRUE_DESIGN_ORDER
+  TRUE_DESIGN_ORDER_FAILED_AWAITING_RESOLUTION
+  TRUE_DESIGN_ORDER_COMPLETED_AWAITING_FINAL_DESIGN_CREATION
+  FINAL_DESIGN_FAILED_AWAITING_RESOLUTION
+  FINAL_DESIGN_COMPLETE_AWAITING_CUSTOMER_APPROVAL
+  CUSTOMER_REJECTED_FINAL_DESIGN_AWAITING_RESOLUTION
+  CUSTOMER_APPROVED_FINAL_DESIGN_AWAITING_INSTALLER_AGREEMENT_SIGNATURE
+  INSTALLER_AGREEMENT_SIGNATURE_OBTAINED_AWAITING_DEPOSIT
+  DEPOSIT_UNSUCCESSFUL_AWAITING_RESOLUTION
+  DEPOSIT_SUCCESSFUL_AWAITING_SITE_SURVEY_SCHEDULE
+  SITE_SURVEY_SCHEDULED_AWAITING_SITE_VISIT
+  SITE_VISITED_AWAITING_SITE_APPROVAL
+  SITE_NOT_APPROVED_CHANGE_ORDER_REQUIRED
+  CHANGE_ORDER_SUBMITTED_AWAITING_CUSTOMER_SIGNATURE
+  CUSTOMER_SIGNATURE_OBTAINED_AWAITING_ENGINEERING_DOCS
+  SITE_NOT_APPROVED_CANNOT_SERVICE
+  SITE_APPROVED_AWAITING_ENGINEERING_DOCS
+  ENGINEERING_DOCS_FINISHED_AWAITING_PERMITS
+  PERMITS_NOT_OBTAINED_AWAITING_RESOLUTION
+  PERMITS_OBTAINED_AWAITING_SECOND_PAYMENT
+  SECOND_PAYMENT_UNSUCCESSFUL_AWAITING_RESOLUTION
+  SECOND_PAYMENT_SUCCESSFUL_AWAITING_INSTALL_SCHEDULE
+  INSTALL_SCHEDULED_AWAITING_INSTALL
+  INSTALL_NOT_COMPLETED_AWAITING_RESOLUTION
+  INSTALL_COMPLETED_AWAITING_UTILITY_APPROVAL
+  UTILITY_APPROVAL_ISSUE_AWAITING_RESOLUTION
+  UTILITY_APPROVED_AWAITING_SYSTEM_TURN_ON
+  SYSTEM_NOT_TURNED_ON_AWAITING_RESOLUTION
+  SYSTEM_TURNED_ON
+}
+
+type GoogleSolarObject {
+  administrativeArea: String
+  boundingBox: GoogleBoundingBox
+  center: GoogleLocation
+  imageryDate: GoogleDate
+  imageryProcessedDate: GoogleDate
+  imageryQuality: String
+  name: String
+  postalCode: String
+  regionCode: String
+  solarPotential: GoogleSolarPotential
+  statisticalArea: String
+}
+
+type GoogleBoundingBox {
+  ne: GoogleLocation
+  sw: GoogleLocation
+}
+
+type GoogleLocation {
+  latitude: Float
+  longitude: Float
+}
+
+type GoogleDate {
+  day: Int
+  month: Int
+  year: Int
+}
+
+type GoogleSolarPotential {
+  buildingStats: GoogleBuildingStats
+  carbonOffsetFactorKgPerMwh: String
+  financialAnalyses: [GoogleFinancialAnalysis]
+  maxArrayAreaMeters2: Float
+  maxArrayPanelsCount: Int
+  maxSunshineHoursPerYear: Float
+  panelCapacityWatts: Float
+  panelHeightMeters: Float
+  panelLifetimeYears: Float
+  panelWidthMeters: Float
+  roofSegmentStats: [GoogleRoofSegmentStat]
+  solarPanelConfigs: [GoogleSolarPanelConfig]
+  solarPanels: [GoogleSolarPanel]
+  wholeRoofStats: GoogleBuildingStats
+}
+
+type GoogleBuildingStats {
+  areaMeters2: Float
+  groundAreaMeters2: Float
+  sunshineQuantiles: [Float]
+}
+
+type GoogleFinancialAnalysis {
+  monthlyBill: GooglePayment
+  panelConfigIndex: Int
+  cashPurchaseSavings: GoogleCashPurchaseSavings
+  financedPurchaseSavings: GoogleFinancedPurchaseSavings
+  financialDetails: GoogleFinancialDetails
+  leasingSavings: GoogleLeasingSavings
+  defaultBill: Boolean
+}
+
+type GooglePayment {
+  currencyCode: String
+  units: String
+  nanos: Int
+}
+
+type GoogleCashPurchaseSavings {
+  outOfPocketCost: GooglePayment
+  paybackYears: Float
+  rebateValue: GooglePayment
+  savings: GoogleCPSavings
+  upfrontCost: GooglePayment
+}
+
+type GoogleCPSavings {
+  financiallyViable: Boolean
+  presentValueOfSavingsLifetime: GooglePayment
+  presentValueOfSavingsYear20: GooglePayment
+  savingsLifetime: GooglePayment
+  savingsYear1: GooglePayment
+  savingsYear20: GooglePayment
+}
+
+type GoogleFinancedPurchaseSavings {
+  annualLoanPayment: GooglePayment
+  loanInterestRate: Float
+  rebateValue: GooglePayment
+  savings: GoogleFPSavings
+}
+
+type GoogleFPSavings {
+  financiallyViable: Boolean
+  presentValueOfSavingsLifetime: GooglePayment
+  presentValueOfSavingsYear20: GooglePayment
+  savingsLifetime: GooglePayment
+  savingsYear1: GooglePayment
+  savingsYear20: GooglePayment
+}
+
+type GoogleFinancialDetails {
+  costOfElectricityWithoutSolar: GooglePayment
+  federalIncentive: GooglePayment
+  initialAcKwhPerYear: Float
+  lifetimeSrecTotal: GooglePayment
+  netMeteringAllowed: Boolean
+  percentageExportedToGrid: Float
+  remainingLifetimeUtilityBill: GooglePayment
+  solarPercentage: Float
+  stateIncentive: GooglePayment
+  utilityIncentive: GooglePayment
+}
+
+type GoogleRoofSegmentStat {
+  azimuthDegrees: Float
+  boundingBox: GoogleBoundingBox
+  center: GoogleLocation
+  pitchDegrees: Float
+  planeHeightAtCenterMeters: Float
+  stats: GoogleBuildingStats
+}
+
+type GoogleSolarPanelConfig {
+  panelsCount: Int
+  roofSegmentSummaries: [GoogleRoofSummary]
+  yearlyEnergyDcKwh: Float
+}
+
+type GoogleRoofSummary {
+  azimuthDegrees: Float
+  panelsCount: Int
+  pitchDegrees: Float
+  segmentIndex: Int
+  yearlyEnergyDcKwh: Float
+}
+
+type GoogleSolarPanel {
+  center: GoogleLocation
+  orientation: String
+  segmentIndex: Int
+  yearlyEnergyDcKwh: Float
+}
+
+type GoogleLeasingSavings {
+  annualLeasingCost: GooglePayment
+  leasesAllowed: Boolean
+  leasesSupported: Boolean
+  savings: GoogleLeaseSavings
+}
+
+type GoogleLeaseSavings {
+  presentValueOfSavingsLifetime: GooglePayment
+  presentValueOfSavingsYear20: GooglePayment
+  savingsLifetime: GooglePayment
+  savingsYear1: GooglePayment
+  savingsYear20: GooglePayment
+  financiallyViable: Boolean
+}

@@ -201,7 +201,7 @@ function SignUpModal({ installer, onClose, onSignUpSuccess, onShowLogin }: SignU
   const [error, setError] = useState("");
   const [isVerificationOpen, setIsVerificationOpen] = useState(false);
 
-  const handleSubmit = async (e: React.FormEvent) => {
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     if (formData.password !== formData.confirmPassword) {
       setError("Passwords do not match");
@@ -227,7 +227,9 @@ function SignUpModal({ installer, onClose, onSignUpSuccess, onShowLogin }: SignU
         setIsVerificationOpen(true);
       }
     } catch (error) {
-      setError(error instanceof Error ? error.message : "An error occurred");
+      const err = error as Error;
+      setError(err.message);
+      console.error("Error during sign-up:", err);
     }
   };
 

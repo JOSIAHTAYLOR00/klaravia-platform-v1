@@ -1,0 +1,25 @@
+{
+  "dev": {
+    "awscloudformation": {
+      "AuthRoleName": "amplify-klaravia-dev-135101-authRole",
+      "UnauthRoleArn": "arn:aws:iam::961000384038:role/amplify-klaravia-dev-135101-unauthRole",
+      "AuthRoleArn": "arn:aws:iam::961000384038:role/amplify-klaravia-dev-135101-authRole",
+      "Region": "us-east-2",
+      "DeploymentBucketName": "amplify-klaravia-dev-135101-deployment",
+      "UnauthRoleName": "amplify-klaravia-dev-135101-unauthRole",
+      "StackName": "amplify-klaravia-dev-135101",
+      "StackId": "arn:aws:cloudformation:us-east-2:961000384038:stack/amplify-klaravia-dev-135101/d081acc0-7cdd-11ee-8c18-06ae5be2ce39",
+      "AmplifyAppId": "d3hg3svhk7vkuy"
+    },
+    "categories": {
+      "auth": {
+        "klaravia4bfd8658": {
+          "nativeClientId": "1ftt8k79e9fdljodfrejpp4god",
+          "userPoolId": "us-east-2_ciKoAoORO",
+          "userPoolName": "dev_pool_2",
+          "webClientId": "1ftt8k79e9fdljodfrejpp4god"
+        }
+      }
+    }
+  }
+}

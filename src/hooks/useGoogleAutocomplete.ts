@@ -35,7 +35,9 @@ export function useGoogleAutocomplete({
 
   const processPlace = async (place: google.maps.places.PlaceResult): Promise<boolean> => {
     if (!place?.address_components) return false
-
+    const lat = place?.geometry?.location?.lat();
+    const lng = place.geometry?.location?.lng();
+    console.log('place:', lat, lng)
     const stateComponent = place.address_components.find(
       component => component.types.includes('administrative_area_level_1')
     )

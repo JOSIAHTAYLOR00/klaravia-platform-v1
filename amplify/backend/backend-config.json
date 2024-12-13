@@ -1,0 +1,80 @@
+{
+  "api": {
+    "klaravia": {
+      "dependsOn": [
+        {
+          "attributes": [
+            "UserPoolId"
+          ],
+          "category": "auth",
+          "resourceName": "klaravia4bfd8658"
+        }
+      ],
+      "output": {
+        "authConfig": {
+          "additionalAuthenticationProviders": [
+            {
+              "authenticationType": "AMAZON_COGNITO_USER_POOLS",
+              "userPoolConfig": {
+                "userPoolId": "authklaravia4bfd8658"
+              }
+            }
+          ],
+          "defaultAuthentication": {
+            "apiKeyConfig": {
+              "apiKeyExpirationDate": "2024-03-01T01:00:47.576Z",
+              "apiKeyExpirationDays": 7,
+              "description": "updated api key"
+            },
+            "authenticationType": "API_KEY"
+          }
+        }
+      },
+      "providerPlugin": "awscloudformation",
+      "service": "AppSync"
+    }
+  },
+  "auth": {
+    "klaravia4bfd8658": {
+      "customAuth": false,
+      "dependsOn": [],
+      "providerPlugin": "awscloudformation",
+      "service": "Cognito",
+      "serviceType": "imported"
+    }
+  },
+  "parameters": {
+    "AMPLIFY_auth_klaravia4bfd8658_nativeClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "klaravia4bfd8658"
+        }
+      ]
+    },
+    "AMPLIFY_auth_klaravia4bfd8658_userPoolId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "klaravia4bfd8658"
+        }
+      ]
+    },
+    "AMPLIFY_auth_klaravia4bfd8658_userPoolName": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "klaravia4bfd8658"
+        }
+      ]
+    },
+    "AMPLIFY_auth_klaravia4bfd8658_webClientId": {
+      "usedBy": [
+        {
+          "category": "auth",
+          "resourceName": "klaravia4bfd8658"
+        }
+      ]
+    }
+  }
+}

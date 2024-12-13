@@ -2,20 +2,248 @@
 @tailwind components;
 @tailwind utilities;
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
+@layer base {
+  html {
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  @font-face {
+    font-family: "new-astro-soft";
+    src: url("/fonts/New-Astro-Soft-Regular.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    /* Reset metrics */
+    ascent-override: 90%; /* Adjust this value to match Adobe CDN */
+    line-gap-override: 0%; /* Remove additional line gap */
+    line-height: 1;
+  }
 
-@media (prefers-color-scheme: dark) {
+  @font-face {
+    font-family: "Eurostile";
+    src: url("/fonts/Eurostile.otf") format("opentype");
+    font-weight: 400;
+    font-style: normal;
+    font-display: swap;
+    /* Reset metrics */
+    ascent-override: 80%; /* Adjust this value to match Adobe CDN */
+    descent-override: 10%; /* Adjust this value to match Adobe CDN */
+    line-gap-override: 0%; /* Remove additional line gap */
+    line-height: 1.2;
+  }
+
+  @font-face {
+    font-family: "Eurostile";
+    src: url("/fonts/Eurostile-Bold.otf") format("opentype");
+    font-weight: 700;
+    font-style: normal;
+    font-display: swap;
+    ascent-override: 78%; /* Adjust this value to match Adobe CDN */
+    descent-override: 10%; /* Adjust this value to match Adobe CDN */
+    line-gap-override: 0%; /* Remove additional line gap */
+    line-height: 1.2;
+  }
+
+  /* Apply to all Eurostile text */
+  .font-eurostile {
+    /* Fix the vertical metrics */
+    line-height: 1; /* Adjust to match Adobe CDN */
+    vertical-align: baseline; /* Ensure baseline alignment */
+    /* Fix the horizontal metrics */
+    letter-spacing: 4rem; /* Fine-tune letter spacing */
+    /* Optional: Add padding to match box model */
+    padding-top: 0.1em; /* Adjust these values to match Adobe CDN */
+    padding-bottom: 0.1em; /* Adjust these values to match Adobe CDN */
+  }
+
+  /* Reset box model for specific cases */
+  .font-eurostile-reset {
+    display: inline-block; /* Contains the overflow */
+    line-height: normal; /* Reset to browser default */
+    vertical-align: top; /* Align to top of container */
+  }
+
   :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+    --font-eurostile: "Eurostile", system-ui, -apple-system, sans-serif;
+  }
+
+  html {
+    font-family: var(--font-eurostile);
+  }
+
+  body {
+    font-family: var(--font-eurostile);
   }
 }
 
-body {
-  color: var(--foreground);
-  background: var(--background);
-  font-family: Arial, Helvetica, sans-serif;
+.lp-section {
+  min-height: 100vh;
+  scroll-snap-align: start;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.scroll-container {
+  scroll-snap-type: y mandatory;
+  overflow-y: scroll;
+  height: 100vh;
+  scrollbar-width: none;
+}
+
+html {
+  scrollbar-width: none;
+}
+
+* {
+  font-family: "eurostile", sans-serif;
+}
+
+.us-state-map {
+  max-width: 80vw;
+  max-height: 45vh;
+}
+
+/* Container for the autocomplete dropdown */
+.pac-container {
+  width: auto !important;
+  background-color: white;
+  border-radius: 0.75rem;
+  margin-top: 4px;
+  padding: 8px;
+  z-index: 1050;
+  border: 1px solid rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+  font-size: 16px;
+}
+
+/* Dark mode styles for container */
+:is(.dark .pac-container) {
+  background-color: #121212;
+  border-color: rgba(255, 255, 255, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3), 0 2px 4px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* Individual suggestion items */
+.pac-item {
+  padding: 8px 12px;
+  color: rgb(51, 65, 85);
+  font-family: "eurostile", sans-serif;
+  border: none;
+  cursor: pointer;
+  border-radius: 0.5rem;
+  font-size: 16px;
+  transition: background-color 0.2s ease;
+}
+
+/* Hover state for items */
+.pac-item:hover {
+  background-color: rgba(241, 245, 249, 0.9);
+}
+
+/* Dark mode styles for items */
+:is(.dark .pac-item) {
+  color: rgb(226, 232, 240);
+}
+
+:is(.dark .pac-item:hover) {
+  background-color: rgba(51, 65, 85, 0.5);
+}
+
+/* Matched text in suggestions */
+.pac-item-query {
+  color: rgb(51, 65, 85);
+}
+
+/* Dark mode for matched text */
+:is(.dark .pac-item-query) {
+  color: rgb(248, 250, 252);
+}
+
+/* All text within pac-item */
+.pac-item * {
+  color: rgb(51, 65, 85) !important; /* Force color in light mode */
+}
+
+/* Dark mode override for all text */
+:is(.dark .pac-item *) {
+  color: rgb(226, 232, 240) !important;
+}
+
+/* Secondary text */
+.pac-secondary-text {
+  color: rgb(71, 85, 105) !important;
+}
+
+:is(.dark .pac-secondary-text) {
+  color: rgb(203, 213, 225) !important;
+}
+
+/* Matched terms */
+.pac-matched {
+  color: rgb(51, 65, 85) !important;
+}
+
+:is(.dark .pac-matched) {
+  color: rgb(248, 250, 252) !important;
+}
+
+/* Remove the default border between items */
+.pac-item:not(:last-child) {
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+  font-size: 16px;
+}
+
+/* Hover state for suggestions */
+.pac-item:hover {
+  background-color: rgba(255, 255, 255, 0.1);
+  font-size: 16px;
+}
+
+/* Matched text in suggestions */
+.pac-item-query {
+  color: white;
+  font-family: "eurostile", sans-serif;
+  font-size: 16px;
+}
+
+/* Secondary text in suggestions */
+.pac-secondary-text {
+  color: rgba(255, 255, 255, 0.5);
+  font-size: 16px;
+}
+
+/* Remove Google's default powered by logo */
+.pac-logo:after {
+  display: none;
+}
+
+/* Selected/highlighted suggestion */
+.pac-item-selected {
+  background-color: rgba(255, 255, 255, 0.15);
+  font-size: 16px;
+}
+
+.font-astro {
+  font-family: "new-astro", sans-serif;
+}
+
+.font-eurostile {
+  font-family: "eurostile", sans-serif;
+}
+
+/* Font weights if needed */
+.font-astro-bold {
+  font-family: "new-astro", sans-serif;
+  font-weight: 700;
+}
+
+.font-eurostile-medium {
+  font-family: "eurostile", sans-serif;
+  font-weight: 500;
+}
+
+.logo {
+  font-family: new-astro-soft;
 }

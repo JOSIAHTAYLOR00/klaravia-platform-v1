@@ -1,0 +1,1 @@
+export const SERVICEABLE_STATES: string[] = ['AZ'] as const
